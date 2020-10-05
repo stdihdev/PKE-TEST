@@ -7,7 +7,7 @@ import {
   GraphQLString
 } from "graphql"
 
-const ShirtColorType = new GraphQLEnumType({
+export const ShirtColorType = new GraphQLEnumType({
   name: 'ShirtColorType',
   values: {
     WHITE: {value: "white"},

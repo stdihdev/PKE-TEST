@@ -1,7 +1,7 @@
 import {ApolloServer} from "apollo-server-micro"
 import Cors from "micro-cors"
-import {connectSequelize, sequelize} from "./models/base";
-import {schema} from "./schema";
+import {connectSequelize, sequelize} from "../../gqlapi/models/base";
+import {schema} from "../../gqlapi/schema";
 
 connectSequelize(sequelize)
 
