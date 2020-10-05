@@ -1,6 +1,6 @@
-import {GraphQLObjectType, GraphQLSchema} from "graphql";
+import {GraphQLInt, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString} from "graphql";
 import {GraphQLList} from "graphql/type/definition";
-import {ShirtType} from "../models/schema_types/shirt";
+import {ShirtColorType, ShirtType} from "../models/schema_types/shirt";
 import {Shirt} from "../models";
 
 const Query = new GraphQLObjectType({
@@ -13,6 +13,23 @@ const Query = new GraphQLObjectType({
   }
 })
 
+const Mutation = new GraphQLObjectType({
+  name: "Mutation",
+  fields: {
+    createShirt: {
+      type: ShirtType,
+      args: {
+        name: {type: GraphQLString},
+        color: {type: new GraphQLNonNull(ShirtColorType)},
+        size: {type: new GraphQLNonNull(GraphQLInt)}
+      },
+      resolve: (parent, {name, color, size}) =>
+        Shirt.create({name, color, size})
+    }
+  }
+})
+
 export const schema = new GraphQLSchema({
-  query: Query
+  query: Query,
+  mutation: Mutation
 })
