@@ -6,7 +6,7 @@ import {Shirt} from "../models";
 const Query = new GraphQLObjectType({
   name: "Query",
   fields: {
-    all_shirts: {
+    All_shirts: {
       type: new GraphQLList(ShirtType),
       resolve: async (parent) => await Shirt.findAll()
     }
@@ -16,7 +16,7 @@ const Query = new GraphQLObjectType({
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
-    createShirt: {
+    CreateShirt: {
       type: ShirtType,
       args: {
         name: {type: GraphQLString},

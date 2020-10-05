@@ -1,0 +1,8 @@
+query All_shirts{
+    All_shirts{
+        id
+        name
+        color
+        size
+    }
+}
