@@ -1,13 +1,8 @@
 # nextjs-shop
 done:
 
-    graphql payload
-    output to the main page shirt list
-    navigation
-    graphql codegen
+    all functionality and styles scss
     
 todo:
-    
-    scss support
-    second page with adding items form 
-    delete items
+
+    docker

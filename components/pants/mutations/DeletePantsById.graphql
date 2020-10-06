@@ -1,0 +1,3 @@
+mutation DeletePantsById($id:ID!) {
+    deletePantsById(id: $id)
+}

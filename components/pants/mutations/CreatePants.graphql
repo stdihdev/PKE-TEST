@@ -1,0 +1,9 @@
+mutation CreatePants($L: Int!, $W: Int!, $color: String!, $name: String) {
+  createPants(L:$L, W: $W, color: $color, name: $name){
+    id
+    name
+    color
+    W
+    L
+  }
+}
