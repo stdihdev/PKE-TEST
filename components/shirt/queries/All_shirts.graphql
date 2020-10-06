@@ -1,5 +1,5 @@
 query All_shirts{
-    All_shirts{
+    all_shirts{
         id
         name
         color

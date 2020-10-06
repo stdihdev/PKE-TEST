@@ -1,0 +1,8 @@
+mutation CreateShirt($color: ShirtColorType!, $name: String, $size: Int!) {
+  createShirt(name: $name, color: $color, size: $size){
+    id
+    name
+    color
+    size
+  }
+}
