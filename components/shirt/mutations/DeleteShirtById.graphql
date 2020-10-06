@@ -1,0 +1,3 @@
+mutation DeleteShirtById($id:ID!) {
+    deleteShirtById(id: $id)
+}

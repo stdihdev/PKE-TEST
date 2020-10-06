@@ -1,19 +1,32 @@
-import {useAll_shirts} from "./queries/__generated__/All_shirts";
+import {All_shirtsDocument, useAll_shirts} from "./queries/__generated__/All_shirts";
 import {ShirtColorType} from "../__generated__/types";
 import React from "react";
-import Router from "next/router";
+import {useDeleteShirtById} from "./mutations/__generated__/DeleteShirtById";
 
 export const ShirtList = () => {
   const {loading, error, data} = useAll_shirts()
+  const [deleteShirtById] = useDeleteShirtById(
+    {
+      refetchQueries: [
+        {
+          query: All_shirtsDocument,
+        }
+      ]
+    }
+  )
   if (loading || !data) return <div>Loading...</div>
-  const {All_shirts} = data
+  const {all_shirts} = data
   const colorsK = Object.keys(ShirtColorType);
   const colorsV = Object.values(ShirtColorType);
   colorsK.map(c => console.log(c))
   colorsV.map(c => console.log(c))
 
   const linkClickHandler = (id) => {
-
+    deleteShirtById({
+      variables: {
+        id
+      }
+    })
   }
 
   return (
@@ -28,7 +41,7 @@ export const ShirtList = () => {
           <th>Size</th>
           <th>Action</th>
         </tr>
-        {All_shirts.map(shirt => (
+        {all_shirts.map(shirt => (
           <tr key={shirt.id}>
             <td>{shirt.id}</td>
             <td>{shirt?.name}</td>
