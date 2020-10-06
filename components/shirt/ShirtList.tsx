@@ -26,10 +26,10 @@ export const ShirtList = () => {
   }
 
   return (
-    <section>
-      <h3>All Shirts</h3>
+    <section className="main__table_shirt table">
       <table>
         <caption>Shirts</caption>
+        <thead>
         <tr>
           <th>Id</th>
           <th>Name</th>
@@ -37,6 +37,8 @@ export const ShirtList = () => {
           <th>Size</th>
           <th>Action</th>
         </tr>
+        </thead>
+        <tbody>
         {all_shirts.map(shirt => (
           <tr key={shirt.id}>
             <td>{shirt.id}</td>
@@ -48,10 +50,7 @@ export const ShirtList = () => {
             </td>
           </tr>
         ))}
-        {/*<tr>*/}
-        {/*  <td>...</td>*/}
-        {/*</tr>*/}
-
+        </tbody>
       </table>
     </section>
   )

@@ -15,8 +15,82 @@ a {
   box-sizing: border-box;
 }
 
-table {
+.navigation {
+  margin-top: 2%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+  &__home {
+    margin-right: 1%;
+  }
+
+  a {
+    transition: all 0.3s ease 0s;
+  }
+
+  a:hover {
+    color: #0070f3;
+  }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  justify-content: flex-start;
+}
+
+.add-item {
+  &__shirt, &__pants {
+    input, select {
+      margin-right: 10px;
+      margin-left: 5px;
+    }
+  }
+}
+
+.table {
+  margin-right: 2%;
+  margin-top: 5%;
+
+  caption {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2%;
+  }
+
+  thead {
+    background-color: aliceblue;
+  }
+
+  tbody {
+    background-color: #eaeaea;
+  }
+
   td {
-    border: 1px solid grey;
+    border: 1px solid #777;
+  }
+
+  button {
+    background-color: bisque;
+    padding: 3px;
+    margin: 3px;
+    border: 1px solid brown;
+    border-radius: 5px;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: burlywood;
+    transition: all 0.3s ease 0s;
   }
 }

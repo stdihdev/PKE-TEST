@@ -1,0 +1,9 @@
+query All_pants{
+  all_pants{
+    id
+    name
+    color
+    W
+    L
+  }
+}

@@ -6,11 +6,22 @@ schema {
 }
 
 type Mutation {
+  createPants(L: Int!, W: Int!, color: String!, name: String): Pants
   createShirt(color: ShirtColorType!, name: String, size: Int!): Shirt
+  deletePantsById(id: ID!): Int
   deleteShirtById(id: ID!): Int
 }
 
+type Pants {
+  L: Int!
+  W: Int!
+  color: String!
+  id: ID!
+  name: String
+}
+
 type Query {
+  all_pants: [Pants]
   all_shirts: [Shirt]
 }
 
