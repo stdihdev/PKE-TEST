@@ -1,5 +1,4 @@
 import {All_shirtsDocument, useAll_shirts} from "./queries/__generated__/All_shirts";
-import {ShirtColorType} from "../__generated__/types";
 import React from "react";
 import {useDeleteShirtById} from "./mutations/__generated__/DeleteShirtById";
 
@@ -16,10 +15,7 @@ export const ShirtList = () => {
   )
   if (loading || !data) return <div>Loading...</div>
   const {all_shirts} = data
-  const colorsK = Object.keys(ShirtColorType);
-  const colorsV = Object.values(ShirtColorType);
-  colorsK.map(c => console.log(c))
-  colorsV.map(c => console.log(c))
+
 
   const linkClickHandler = (id) => {
     deleteShirtById({
