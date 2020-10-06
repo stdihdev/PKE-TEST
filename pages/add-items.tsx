@@ -10,7 +10,6 @@ export default function AddItems (){
   }
   return(
     <MainLayout>
-
       <button onClick={linkClickHandler}>Go back to home</button>
     </MainLayout>
   )

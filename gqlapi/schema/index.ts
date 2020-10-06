@@ -1,4 +1,4 @@
-import {GraphQLInt, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString} from "graphql";
+import {GraphQLID, GraphQLInt, GraphQLNonNull, GraphQLObjectType, GraphQLSchema, GraphQLString} from "graphql";
 import {GraphQLList} from "graphql/type/definition";
 import {ShirtColorType, ShirtType} from "../models/schema_types/shirt";
 import {Shirt} from "../models";
@@ -25,6 +25,11 @@ const Mutation = new GraphQLObjectType({
       },
       resolve: (parent, {name, color, size}) =>
         Shirt.create({name, color, size})
+    },
+    deleteShirt:{
+      type: GraphQLInt,
+      args: { id: { type: new GraphQLNonNull(GraphQLID) } },
+      resolve: (parent, { id }) => Shirt.destroy({ where: { id } })
     }
   }
 })

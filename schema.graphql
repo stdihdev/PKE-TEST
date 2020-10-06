@@ -1,0 +1,28 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Mutation {
+    CreateShirt(color: ShirtColorType!, name: String, size: Int!): Shirt
+    deleteShirt(id: ID!): Int
+}
+
+type Query {
+    All_shirts: [Shirt]
+}
+
+type Shirt {
+    color: ShirtColorType!
+    id: ID!
+    name: String
+    size: Int!
+}
+
+enum ShirtColorType {
+    BLUE
+    GREY
+    WHITE
+}

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "migration": "npm run migration:create:db && npm run migration:up",
     "migration:init": "npx sequelize-cli init",
+    "migration:create:db": "sequelize db:create",
     "migration:up": "npx sequelize-cli db:migrate up",
     "generateHoocs": "graphql-codegen",
     "clearHoocs": "find ./components -name \"__generated__\" -exec rm -rf '{}' +"
