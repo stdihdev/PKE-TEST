@@ -1,4 +1,4 @@
-##Steps for run the web-application:
+Steps for run the web-application:
 
 1. Clone this repository
 
