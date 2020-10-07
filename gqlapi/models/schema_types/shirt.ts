@@ -5,19 +5,19 @@ import {
   GraphQLNonNull,
   GraphQLObjectType,
   GraphQLString
-} from "graphql"
+} from 'graphql'
 
 export const ShirtColorType = new GraphQLEnumType({
   name: 'ShirtColorType',
   values: {
-    WHITE: {value: "white"},
-    GREY: {value: "grey"},
-    BLUE: {value: "blue"}
+    WHITE: { value: 'white' },
+    GREY: { value: 'grey' },
+    BLUE: { value: 'blue' }
   }
-});
+})
 
 export const ShirtType = new GraphQLObjectType({
-  name: "Shirt",
+  name: 'Shirt',
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLID)
@@ -30,6 +30,6 @@ export const ShirtType = new GraphQLObjectType({
     },
     size: {
       type: new GraphQLNonNull(GraphQLInt)
-    },
+    }
   })
 })

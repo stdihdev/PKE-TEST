@@ -1,4 +1,4 @@
-import { withApollo } from '../lib/apollo'
+import { withApollo } from '../gqlapi/lib/apollo'
 import "../styles/globals.scss"
 
 function App({ Component, pageProps }) {

@@ -1,14 +1,14 @@
-import Link from 'next/link';
-import Head from 'next/head';
+import Link from 'next/link'
+import Head from 'next/head'
 
-export function MainLayout({children, title = 'Nextjs Shop'}) {
+export function MainLayout({ children}) {
   return (
     <>
       <Head>
         <title>Nextjs Shop</title>
-        <meta name="keywords" content="next,shop,nextjs,shirt,pants"/>
-        <meta name="description" content="this is youtube tutorial for next"/>
-        <meta charSet="utf-8"/>
+        <meta name="keywords" content="next,shop,nextjs,shirt,pants" />
+        <meta name="description" content="this is youtube tutorial for next" />
+        <meta charSet="utf-8" />
       </Head>
 
       <nav className="navigation">

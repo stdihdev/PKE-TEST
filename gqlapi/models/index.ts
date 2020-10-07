@@ -1,2 +1,2 @@
-export {Shirt} from "./shirts";
-export {Pants} from "./pants";
+export { Shirt } from './shirts'
+export { Pants } from './pants'

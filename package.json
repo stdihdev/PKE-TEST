@@ -6,12 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "npm:i": "npm i",
     "migration": "npm run migration:create:db && npm run migration:up",
     "migration:init": "npx sequelize-cli init",
     "migration:create:db": "sequelize db:create",
     "migration:up": "npx sequelize-cli db:migrate up",
     "generateHoocs": "graphql-codegen",
-    "clearHoocs": "find ./components -name \"__generated__\" -exec rm -rf '{}' +"
+    "clearHoocs": "find ./components -name \"__generated__\" -exec rm -rf '{}' +",
+    "prettier:check": "prettier --ignore-path .eslintignore --check \"**/*.{css,html,js,jsx,md,yaml,ts,tsx}\""
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
@@ -29,7 +31,8 @@
     "react-dom": "16.13.1",
     "sass": "^1.26.11",
     "sequelize": "^6.3.5",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "uninstall": "0.0.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.17.10",
@@ -39,8 +42,8 @@
     "@graphql-codegen/typescript-react-apollo": "^2.0.7",
     "@types/node": "^14.11.2",
     "@types/react": "^16.9.50",
-    "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/parser": "^4.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-config-standard": "^14.1.1",

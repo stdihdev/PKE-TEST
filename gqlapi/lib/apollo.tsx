@@ -1,7 +1,7 @@
 import React from 'react'
 import App from 'next/app'
 import Head from 'next/head'
-import {ApolloProvider} from '@apollo/react-hooks'
+import { ApolloProvider } from '@apollo/react-hooks'
 import createApolloClient from '../../apolloClient'
 
 // On the client, we store the Apollo Client in the following variable.
@@ -79,8 +79,8 @@ const initApolloClient = (initialState, ctx) => {
  * @param  {Boolean} [withApolloOptions.ssr=false]
  * @returns {(PageComponent: ReactNode) => ReactNode}
  */
-export const withApollo = ({ssr = false} = {}) => PageComponent => {
-  const WithApollo = ({apolloClient, apolloState, ...pageProps}) => {
+export const withApollo = ({ ssr = false } = {}) => PageComponent => {
+  const WithApollo = ({ apolloClient, apolloState, ...pageProps }) => {
     let client
     if (apolloClient) {
       // Happens on: getDataFromTree & next.js ssr
@@ -107,7 +107,7 @@ export const withApollo = ({ssr = false} = {}) => PageComponent => {
   if (ssr || PageComponent.getInitialProps) {
     WithApollo.getInitialProps = async ctx => {
       const inAppContext = Boolean(ctx.ctx)
-      const {apolloClient} = initOnContext(ctx)
+      const { apolloClient } = initOnContext(ctx)
 
       // Run wrapped getInitialProps methods
       let pageProps = {}
@@ -119,7 +119,7 @@ export const withApollo = ({ssr = false} = {}) => PageComponent => {
 
       // Only on the server:
       if (typeof window === 'undefined') {
-        const {AppTree} = ctx
+        const { AppTree } = ctx
         // When redirecting, the response is finished.
         // No point in continuing to render
         if (ctx.res && ctx.res.finished) {
@@ -131,15 +131,15 @@ export const withApollo = ({ssr = false} = {}) => PageComponent => {
           try {
             // Import `@apollo/react-ssr` dynamically.
             // We don't want to have this in our client bundle.
-            const {getDataFromTree} = await import('@apollo/react-ssr')
+            const { getDataFromTree } = await import('@apollo/react-ssr')
 
             // Since AppComponents and PageComponents have different context types
             // we need to modify their props a little.
             let props
             if (inAppContext) {
-              props = {...pageProps, apolloClient}
+              props = { ...pageProps, apolloClient }
             } else {
-              props = {pageProps: {...pageProps, apolloClient}}
+              props = { pageProps: { ...pageProps, apolloClient } }
             }
 
             // Take the Next.js AppTree, determine which queries are needed to render,

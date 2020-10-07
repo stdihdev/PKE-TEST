@@ -1,0 +1,9 @@
+./**/node_modules/
+./fixtures/**/
+.next
+!.*.js
+*.md
+__generated__
+db
+config
+migrations
