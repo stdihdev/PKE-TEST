@@ -12,6 +12,7 @@
     "migration:create:db": "sequelize db:create",
     "migration:up": "npx sequelize-cli db:migrate up",
     "generateHoocs": "graphql-codegen",
+    "docker-compose:up": "docker-compose up",
     "clearHoocs": "find ./components -name \"__generated__\" -exec rm -rf '{}' +",
     "prettier:check": "prettier --ignore-path .eslintignore --check \"**/*.{css,html,js,jsx,md,yaml,ts,tsx}\""
   },
