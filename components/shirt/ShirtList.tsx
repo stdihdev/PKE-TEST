@@ -1,20 +1,20 @@
-import {All_shirtsDocument, useAll_shirts} from "./queries/__generated__/All_shirts";
-import React from "react";
-import {useDeleteShirtById} from "./mutations/__generated__/DeleteShirtById";
+import { All_shirtsDocument, useAll_shirts } from './queries/__generated__/All_shirts'
+import React from 'react'
+import { useDeleteShirtById } from './mutations/__generated__/DeleteShirtById'
 
 export const ShirtList = () => {
-  const {loading, error, data} = useAll_shirts()
+  const { loading, error, data } = useAll_shirts()
   const [deleteShirtById] = useDeleteShirtById(
     {
       refetchQueries: [
         {
-          query: All_shirtsDocument,
+          query: All_shirtsDocument
         }
       ]
     }
   )
   if (loading || !data) return <div>Loading...</div>
-  const {all_shirts} = data
+  const { all_shirts } = data
 
 
   const linkClickHandler = (id) => {
@@ -22,7 +22,7 @@ export const ShirtList = () => {
       variables: {
         id
       }
-    })
+    }).finally()
   }
 
   return (

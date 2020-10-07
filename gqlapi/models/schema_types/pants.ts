@@ -1,7 +1,7 @@
-import {GraphQLID, GraphQLInt, GraphQLNonNull, GraphQLObjectType, GraphQLString} from "graphql";
+import { GraphQLID, GraphQLInt, GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql'
 
 export const PantsType = new GraphQLObjectType({
-  name: "Pants",
+  name: 'Pants',
   fields: () => ({
     id: {
       type: new GraphQLNonNull(GraphQLID)

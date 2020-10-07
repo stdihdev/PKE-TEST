@@ -1,7 +1,7 @@
-import {sequelize} from "./base"
-import {DataTypes, INTEGER, NUMBER, STRING} from "sequelize"
+import { sequelize } from './base'
+import { DataTypes, INTEGER, STRING } from 'sequelize'
 
-export const Shirt = sequelize.define("shirts", {
+export const Shirt = sequelize.define('shirts', {
   id: {
     type: INTEGER,
     autoIncrement: true,
@@ -9,7 +9,7 @@ export const Shirt = sequelize.define("shirts", {
     primaryKey: true
   },
   name: {
-    type: STRING({length: 255}),
+    type: STRING({ length: 255 }),
     allowNull: true
   },
   color: {
