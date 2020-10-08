@@ -1,4 +1,4 @@
-schema: http://localhost:3000/api/graphql
+schema: http://localhost:5000/graphql
 documents: 'components/**/*.graphql'
 generates:
   components/__generated__/types.ts:

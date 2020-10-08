@@ -1,7 +1,10 @@
 import Link from 'next/link'
 import Head from 'next/head'
 
-export function MainLayout({ children}) {
+interface Props {
+  children: JSX.Element
+}
+export function MainLayout({ children }) {
   return (
     <>
       <Head>

@@ -1,0 +1,41 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node index.ts",
+    "start": "ts-node index.ts",
+    "migration": "npm run migration:create:db && npm run migration:up",
+    "migration:init": "npx sequelize-cli init",
+    "migration:create:db": "sequelize db:create",
+    "migration:up": "npx sequelize-cli db:migrate up",
+    "lint": "cd server && yarn lint && cd ../client && yarn lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.18.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "typescript": "^4.0.3",
+    "dotenv": "^8.2.0",
+    "ts-node": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/express": "^4.17.8",
+    "@types/node": "^14.11.2",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-formatter-pretty": "^4.0.0",
+    "eslint-plugin-prettier": "^3.1.4"
+  }
+}

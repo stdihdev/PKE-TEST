@@ -30,26 +30,26 @@ export const ShirtList = () => {
       <table>
         <caption>Shirts</caption>
         <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Color</th>
-          <th>Size</th>
-          <th>Action</th>
-        </tr>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Action</th>
+          </tr>
         </thead>
         <tbody>
-        {all_shirts.map(shirt => (
-          <tr key={shirt.id}>
-            <td>{shirt.id}</td>
-            <td>{shirt?.name}</td>
-            <td>{shirt.color}</td>
-            <td>{shirt.size}</td>
-            <td>
-              <button onClick={() => linkClickHandler(shirt.id)}>Delete</button>
-            </td>
-          </tr>
-        ))}
+          {all_shirts.map(shirt => (
+            <tr key={shirt.id}>
+              <td>{shirt.id}</td>
+              <td>{shirt?.name}</td>
+              <td>{shirt.color}</td>
+              <td>{shirt.size}</td>
+              <td>
+                <button onClick={() => linkClickHandler(shirt.id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </section>
