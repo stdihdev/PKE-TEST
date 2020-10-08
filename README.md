@@ -1,33 +1,31 @@
-Steps for run the web-application:
+# Wardrobe
 
-1. Clone this repository
+A simple app built with Node.js, GraphQL, and React.
 
-```git clone https://github.com/endorphin82/nextjs-shop.git```
-      
-2. Please create in root directory file `.env` with the contents below and replace words "user" and "password" on own.
+## Getting started
 
-```
-API_URL="http://localhost:3000/api/graphql"
-DATABASE_URL="mysql://user:passworw@localhost:3306/nextjs-shop"
-DATABASE_USER="user"
-DATABASE_PASSWORD="password"
-DATABASE_NAME="nextjs-shop"
-DATABASE_HOST="127.0.0.1"
-DATABASE_PORT=3306
-DATABASE_DIALECT="mysql"
+1. Clone the repo locally:
+
+```shell
+git clone https://github.com/stevendinhdev/PKE-TEST.git
 ```
 
-3. Install dependencies
+2. Run migration
 
-```npm i```
+```shell
+make migration # docker-compose run migration
+```
 
-4. Create DB and Tables in MySql
+3. Run the docker containers with docker-compose:
 
-```npm run migration```
+```shell
+make start # docker-compose up db graphql nextjs -d
+```
 
-5. Run the web-application in development environment
+3. Open http://localhost:3000 to view the app.
 
-```npm run dev```
+You can also view the GraphQL playground at http://localhost:5000/graphql. To stop the app run:
 
-
-By default run on <http://localhost:3000/>
+```
+docker-compose down
+```
