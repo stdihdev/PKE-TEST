@@ -19,7 +19,7 @@ make migration # docker-compose run migration
 3. Run the docker containers with docker-compose:
 
 ```shell
-make start # docker-compose up db graphql nextjs -d
+make start # docker-compose up -d db graphql nextjs
 ```
 
 3. Open http://localhost:3000 to view the app.
