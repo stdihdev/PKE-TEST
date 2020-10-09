@@ -1,5 +1,5 @@
-import { All_pantsDocument, useAll_pants } from './queries/__generated__/All_pants'
 import React from 'react'
+import { All_pantsDocument, useAll_pants } from './queries/__generated__/All_pants'
 import { useDeletePantsById } from './mutations/__generated__/DeletePantsById'
 import { Pants } from '../__generated__/types'
 

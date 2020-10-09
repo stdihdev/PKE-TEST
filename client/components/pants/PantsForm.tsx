@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Router from 'next/router'
 import { Pants, newPants } from '../__generated__/types'
 import { useCreatePants } from './mutations/__generated__/CreatePants'
 import { All_pantsDocument } from './queries/__generated__/All_pants'
@@ -34,7 +35,7 @@ export default function AddPants() {
       variables: variablesPants
     }).finally(
       () => {
-        setValuesPants(newPants())
+        Router.push('/');
       })
   }
 

@@ -1,7 +1,7 @@
 .PHONY: start
 start:
-	docker-compose up db graphql nextjs
+	docker-compose up -d db graphql nextjs
 
 .PHONY: migration
 migration:
-	docker-compose run migration
+	docker-compose run -d migration

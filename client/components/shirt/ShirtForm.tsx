@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Router from 'next/router'
 import { Shirt, ShirtColorType, newShirt } from '../__generated__/types'
 import { useCreateShirt } from './mutations/__generated__/CreateShirt'
 import { All_shirtsDocument } from './queries/__generated__/All_shirts'
@@ -38,7 +39,7 @@ export default function AddShirt() {
       variables: variablesShirt
     }).finally(
       () => {
-        setValuesShirt(newShirt())
+        Router.push('/');
       })
   }
 

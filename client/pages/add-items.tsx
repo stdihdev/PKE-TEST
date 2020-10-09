@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { MainLayout } from '../components/MainLayout'
-import ShirtForm from '../components/shirt/Form';
-import PantsForm from '../components/pants/Form';
+import ShirtForm from '../components/shirt/ShirtForm';
+import PantsForm from '../components/pants/PantsForm';
 import { ProductType } from '../components/__generated__/types'
 
 
