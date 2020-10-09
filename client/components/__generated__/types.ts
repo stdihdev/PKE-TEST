@@ -29,6 +29,11 @@ export enum ShirtColorType {
   Blue = 'BLUE'
 }
 
+export enum ProductType {
+  Shirt = 'Shirt',
+  Pants = 'Pants'
+}
+
 export type Pants = {
   __typename?: 'Pants';
   id: Scalars['ID'];
@@ -70,3 +75,22 @@ export type MutationCreatePantsArgs = {
 export type MutationDeletePantsByIdArgs = {
   id: Scalars['ID'];
 };
+
+export function newShirt() {
+  return {
+    id: '',
+    name: '',
+    color: ShirtColorType.White,
+    size: 1
+  }
+}
+
+export function newPants() {
+  return {
+    id: '',
+    name: '',
+    color: '',
+    W: 1,
+    L: 1,
+  }
+}

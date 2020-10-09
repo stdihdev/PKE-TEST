@@ -32,11 +32,13 @@ export const ShirtList = () => {
         <table className='table'>
           <caption>Shirts</caption>
           <thead>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Color</th>
-            <th>Size</th>
-            <th>Action</th>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Color</th>
+              <th>Size</th>
+              <th>Action</th>
+            </tr>
           </thead>
           <tbody>
             {all_shirts.map((shirt: Shirt) => (

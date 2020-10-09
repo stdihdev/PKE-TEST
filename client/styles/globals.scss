@@ -1,7 +1,74 @@
+@import "./select-box.scss";
+
+// Variables
 $background: #efefef;
 $lfs-blue: #006ac6;
 $lfs-yellow: #fab700;
 $lfs-grey: #75787b;
+$breakpoint-x-small: 	480px;
+$breakpoint-smaller: 	640px;
+$breakpoint-small: 		768px;
+$breakpoint-medium: 	992px;
+$breakpoint-large: 		1200px;
+
+$breakpoints: (
+	'x-small': 		(min-width: $breakpoint-x-small),
+	'x-small-max': 	(max-width: $breakpoint-x-small - 1),
+	'smaller': 		(min-width: $breakpoint-smaller),
+	'smaller-max': 	(max-width: $breakpoint-smaller - 1),
+	'small': 		(min-width: $breakpoint-small),
+	'small-max': 	(max-width: $breakpoint-small - 1),
+	'medium': 		(min-width: $breakpoint-medium),
+	'medium-max': 	(max-width: $breakpoint-medium - 1),
+	'large': 		(min-width: $breakpoint-large),
+	'large-max': 	(max-width: $breakpoint-large - 1),
+	'landscape': 	(orientation: landscape),
+	'portrait': 	(orientation: portrait),
+);
+
+$breakpoints-grid: (
+	'xsm': 	'x-small',
+	'sml': 	'smaller',
+	'sm': 	'small',
+	'md': 	'medium',
+	'lg': 	'large'
+);
+
+$grid-col-count: 12;
+$global-glutter: 20px;
+
+// Mixins
+@mixin respond-to($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+
+    @if $raw-query {
+        $query: if(type-of($raw-query) == 'string', unquote($raw-query), inspect($raw-query));
+
+        @media #{$query} {
+            @content;
+        }
+    } @else {
+        @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+    }
+}
+
+@mixin clearfloat {
+    &:after {
+        content: '';
+        clear: both;
+        display: table;
+    }
+}
+
+// Box sizing reset
+* {
+	box-sizing: border-box;
+	&:before,
+	&:after {
+		box-sizing: inherit;
+	} 
+}
 
 
 html,
@@ -11,6 +78,101 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: #{$global-glutter/2};
+	padding-right: #{$global-glutter/2};
+	@include respond-to('small') {
+		width: calc(#{$breakpoint-small});
+	}
+
+	@include respond-to('medium') {
+		width: calc(#{$breakpoint-medium});
+	}
+
+	@include respond-to('large') {
+		width: calc(#{$breakpoint-large});
+	}
+
+  &--full {
+    width: 100%;
+  }
+}
+
+.grid-row {
+  @include clearfloat();
+  margin-left: #{-1*$global-glutter/2};
+  margin-right: #{-1*$global-glutter/2};
+  width: auto;
+
+  &__col {
+    float: left;
+    padding-left: #{$global-glutter/2};
+    padding-right: #{$global-glutter/2};
+    width: 100%;
+
+    @each $name, $breakpoint in $breakpoints-grid {
+      @include respond-to($breakpoint) {
+        @for $i from 1 through $grid-col-count {
+          &--#{$name}-#{$i} {
+            width: #{($i/$grid-col-count)*100%};
+          }
+        }
+
+        &--#{$name}-hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.form {
+  &__label {
+    display: block;
+    font-weight: bold;
+    
+    &--error {
+      color: red;
+    }
+  }
+  
+  &__input, &__select {
+    border: 1px solid grey;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: $global-glutter;
+    outline: 0;
+    
+    &:hover {
+      box-shadow: 0 1px 2px 0 rgba(blue, 0.2);
+    }
+    
+    &:focus {
+      box-shadow: 0 1px 3px 0 rgba(blue, 0.5);
+    }
+    
+    &--error {
+      border-color: red;
+    }
+  }
+  
+  &__button {
+    text-align: right;
+    
+    &--center {
+      text-align: center;
+    }
+    
+    &--left {
+      text-align: left;
+    }
+    
+  }
 }
 
 a {
@@ -41,13 +203,6 @@ a {
   margin-top: 20px;
 }
 
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 .add-item {
   &__shirt, &__pants {
     input, select {
@@ -62,6 +217,7 @@ a {
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 4px;
+  overflow: auto;
 
   &_header {
     padding: 10px 15px;
@@ -112,6 +268,7 @@ a {
       td {
         padding: 10px;
         border: 1px solid #F1F1F1;
+        text-align: center;
       }
       th {
         padding-left: 10px;
@@ -134,11 +291,13 @@ a {
 }
 
 .btn {
-	width: 90%;
-	padding: .5em .5em;
+	padding: .5em 2em;
 	border: 0;
 	font-size: 1.1em;
   color: #fff;
+  margin-top: .3em;
+  margin-bottom: .3em;
+  display: inline-block;
 
   &:hover {
     transform: translateY(-2px);
@@ -146,11 +305,15 @@ a {
     transition: all;
   }
 
-  &.btn--standard {
+  &.btn--primary {
     background-color: #0e48e7;
   }
 
   &.btn--delete {
     background-color: #dd0d4b;
   }
+}
+
+.custom-select {
+  @include select-box();
 }
