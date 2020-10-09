@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import Head from 'next/head'
 
-interface Props {
-  children: JSX.Element
+export interface Props {
+  children: React.ReactNode
 }
-export function MainLayout({ children }) {
+
+export function MainLayout({ children }: Props) {
   return (
     <>
       <Head>
@@ -15,8 +16,11 @@ export function MainLayout({ children }) {
       </Head>
 
       <nav className="navigation">
-        <Link href={'/'}><a className="navigation__home">Home</a></Link>
-        <Link href={'/add-items'}><a className="navigation__add_item">Add items</a></Link>
+        <div >
+          <a href="/">
+            <img src="/images/logo.png" alt="Shirts & Pants" className="navigation__logo" />
+          </a>
+        </div>
       </nav>
 
       <main className="main">
